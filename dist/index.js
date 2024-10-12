@@ -60,10 +60,7 @@ for (let i = 0;i < notesArray.length; i++) {
 }
 var notesNormalized = notesArray.join(" ");
 var newNotes = transposedNotesArray.join(" ");
-if (isBrowser()) {
+if (isBrowser())
   alert(`1: ${notesNormalized}\n2: ${newNotes}`);
-} else {
-  console.log();
-  console.log("1: ", notesNormalized);
-  console.log("2: ", newNotes);
-}
+else
+  console.log(`\n1: ${notesNormalized}\n2: ${newNotes}`);
