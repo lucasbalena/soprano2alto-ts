@@ -52,10 +52,12 @@ for (let i = 0; i < notesArray.length; i++) {
 const transposedNotesArray: string[] = [];
 for (let i = 0; i < notesArray.length; i++) {
     const note = notesArray[i];
-    const transposedNote = transpositionMap[note];
+    let transposedNote = transpositionMap[note];
     if (transposedNote) {
         if (transposedNote.length > note.length) {
             notesArray[i] += " ";
+        } else if (transposedNote.length < note.length) {
+            transposedNote += " ";
         }
         transposedNotesArray.push(transposedNote);
     } else {
