@@ -1,3 +1,6 @@
+function isBrowser() {
+    return typeof window !== "undefined" && typeof window.document !== "undefined";
+  }
 
 const transpositionMap: { [key: string]: string } = {
     "C": "F",
@@ -30,8 +33,8 @@ const transpositionMap: { [key: string]: string } = {
     "G'": "C'",
 };
 let notes =  prompt('🎼 ')
-if(!notes) process.exit(1)
-//if(!notes) throw new Error("no input")
+//if(!notes) process.exit(1)
+if(!notes) throw new Error("Input is empty")
 
 notes = notes.trim();
 notes = notes.toUpperCase();
@@ -63,6 +66,10 @@ for (let i = 0; i < notesArray.length; i++) {
 const notesNormalized = notesArray.join(" ");
 const newNotes = transposedNotesArray.join(" ");
 
-console.log();
-console.log("1: ", notesNormalized);
-console.log("2: ", newNotes);
+if(isBrowser()){
+    alert(`1: ${notesNormalized}\n2: ${newNotes}`)
+} else {
+    console.log();
+    console.log("1: ", notesNormalized);
+    console.log("2: ", newNotes);
+}
