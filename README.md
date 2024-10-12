@@ -6,4 +6,4 @@ Ao invés de usar o `readline-sync`, ele usa o `prompt` que o *node* não implem
 
 Ele deve rodar tranquilamente com o *bun* e o *deno*, pois ambos removem a tipagem antes de interpretar e implementaram as Web APIs.
 
-E por usar Web APIs ele roda no browser!
+E por usar Web APIs ele roda no [browser](https://lucasbalena.github.io/soprano2alto-ts/)!
