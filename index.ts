@@ -1,0 +1,68 @@
+
+const transpositionMap: { [key: string]: string } = {
+    "C": "F",
+    "C#": "F#",
+    "D♭": "G♭",
+    "D": "G",
+    "D#": "G#",
+    "E♭": "A♭",
+    "E": "A",
+    "F": "B♭",
+    "F#": "B",
+    "G♭": "B",
+    "G": "C",
+    "G#": "C#",
+    "A♭": "D♭",
+    "A": "D",
+    "A#": "D#",
+    "B♭": "E♭",
+    "B": "E",
+    "C'": "F'",
+    "C#'": "F#'",
+    "D♭'": "G♭'",
+    "D'": "G'",
+    "D#'": "G#'",
+    "E♭'": "A♭'",
+    "E'": "A'",
+    "F'": "B♭'",
+    "F#'": "B'",
+    "G♭'": "B'",
+    "G'": "C'",
+};
+let notes =  prompt('🎼 ')
+if(!notes) process.exit(1)
+//if(!notes) throw new Error("no input")
+
+notes = notes.trim();
+notes = notes.toUpperCase();
+notes = notes.replace("’", "'");
+
+const notesArray = notes.split(" ");
+
+for (let i = 0; i < notesArray.length; i++) {
+    const note = notesArray[i];
+    if (note.length > 1 && note[1] === 'B') {
+        notesArray[i] = note[0] + "♭" + note.slice(2); 
+    }
+}
+
+const transposedNotesArray: string[] = [];
+for (let i = 0; i < notesArray.length; i++) {
+    const note = notesArray[i];
+    const transposedNote = transpositionMap[note];
+    if (transposedNote) {
+        if (transposedNote.length > note.length) {
+            notesArray[i] += " ";
+        }
+        transposedNotesArray.push(transposedNote);
+    } else {
+        transposedNotesArray.push(note);
+    }
+}
+
+const notesNormalized = notesArray.join(" ");
+const newNotes = transposedNotesArray.join(" ");
+
+console.log();
+console.log("1: ", notesNormalized);
+console.log("2: ", newNotes);
