@@ -7,5 +7,6 @@
   "peerDependencies": {
     "typescript": "^5.6.3"
   },
+  "bin": "index.ts",
   "type": "module"
 }
