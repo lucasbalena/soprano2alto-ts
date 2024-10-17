@@ -1,5 +1,8 @@
+#!/usr/bin/env bun
+
 function isBrowser() {
-    return typeof window !== "undefined" && typeof window.document !== "undefined";
+    return typeof window !== "undefined" &&
+        typeof window.document !== "undefined";
 }
 
 const transpositionMap: { [key: string]: string } = {
@@ -32,9 +35,9 @@ const transpositionMap: { [key: string]: string } = {
     "G♭'": "B'",
     "G'": "C'",
 };
-let notes = prompt('🎼 ')
+let notes = prompt("🎼 ");
 //if(!notes) process.exit(1)
-if (!notes) throw new Error("Input is empty")
+if (!notes) throw new Error("Input is empty");
 
 notes = notes.trim();
 notes = notes.toUpperCase();
@@ -44,7 +47,7 @@ const notesArray = notes.split(" ");
 
 for (let i = 0; i < notesArray.length; i++) {
     const note = notesArray[i];
-    if (note.length > 1 && note[1] === 'B') {
+    if (note.length > 1 && note[1] === "B") {
         notesArray[i] = note[0] + "♭" + note.slice(2);
     }
 }
@@ -68,7 +71,8 @@ for (let i = 0; i < notesArray.length; i++) {
 const notesNormalized = notesArray.join(" ");
 const newNotes = transposedNotesArray.join(" ");
 
-if (isBrowser())
-    alert(`1: ${notesNormalized}\n2: ${newNotes}`)
-else
-    console.log(`\n1: ${notesNormalized}\n2: ${newNotes}`)
+if (isBrowser()) {
+    alert(`1: ${notesNormalized}\n2: ${newNotes}`);
+} else {
+    console.log(`\n1: ${notesNormalized}\n2: ${newNotes}`);
+}
